@@ -1,3 +1,5 @@
+package main;
+
 /**
 * Class that creates coin objects based on what 
 * data (if any) is passed to methods
@@ -20,6 +22,12 @@ public class Coin {
     public String valueDescription;
     public boolean ridgedEdge;
     public String metallurgy;
+	public static final double PENNY_VALUE = 0.01;
+	public static final double NICKEL_VALUE = 0.05;
+	public static final double DIME_VALUE = 0.1;
+	public static final double QUARTER_VALUE = 0.25;
+	public static final double HALFDOLLAR_VALUE = 0.50;
+	public static final double DOLLAR_VALUE = 1.00;
 	
 	public Coin()
 	{
@@ -44,7 +52,7 @@ public class Coin {
 	public Coin(double value)
 	{
 		//check if coin should be a penny
-		if(Double.compare(value, 0.01) == 0){
+		if(Double.compare(value, PENNY_VALUE) == 0){
 			this.value = value;
 			this.commonName = "Penny";
 			this.frontImage = "Lincoln";
@@ -54,7 +62,7 @@ public class Coin {
 			this.metallurgy = "Copper";
 		}
 		//check if coin should be a nickel
-		else if (Double.compare(value, 0.05) == 0){
+		else if (Double.compare(value, NICKEL_VALUE) == 0){
 			this.value = value;
 			this.commonName = "Nickel";
 			this.frontImage = "Jefferson";
@@ -65,7 +73,7 @@ public class Coin {
 
 		}
 		//check if coin should be a dime
-		else if (Double.compare(value, 0.10) == 0){
+		else if (Double.compare(value, DIME_VALUE) == 0){
 			this.value = value;
 			this.commonName = "Dime";
 			this.frontImage = "F_Roosevelt";
@@ -75,7 +83,7 @@ public class Coin {
 			this.metallurgy = "Cupro-Nickel";
 		}
 		//check if coin should be a quarter
-		else if (Double.compare(value, 0.25) == 0){
+		else if (Double.compare(value, QUARTER_VALUE) == 0){
 			this.value = value;
 			this.commonName = "Quarter";
 			this.frontImage = "G_Washington";
@@ -86,7 +94,7 @@ public class Coin {
 
 		}
 		//check if coin should be a half dollar
-		else if (Double.compare(value, 0.50) == 0){
+		else if (Double.compare(value, HALFDOLLAR_VALUE) == 0){
 			this.value = value;
 			this.commonName = "Half-dollar";
 			this.frontImage = "J_F_Kennedy";
@@ -97,7 +105,7 @@ public class Coin {
 
 		}
 		//check if coin should be a dollar
-		else if (Double.compare(value, 1.0) == 0){
+		else if (Double.compare(value, DOLLAR_VALUE) == 0){
 			this.value = value;
 			this.commonName = "Dollar";
 			this.frontImage = "Sacagawea";
@@ -118,7 +126,7 @@ public class Coin {
 	public Coin(double value, int year)
 	{
 			//check if coin should be a penny
-			if(Double.compare(value, 0.01) == 0){
+			if(Double.compare(value, PENNY_VALUE) == 0){
 				this.value = value;
 				this.commonName = "Penny";
 				this.frontImage = "Lincoln";
@@ -128,7 +136,7 @@ public class Coin {
 				this.metallurgy = "Copper";
 			}
 			//check if coin should be a nickel
-			else if (Double.compare(value, 0.05) == 0){
+			else if (Double.compare(value, NICKEL_VALUE) == 0){
 				this.value = value;
 				this.commonName = "Nickel";
 				this.frontImage = "Jefferson";
@@ -139,7 +147,7 @@ public class Coin {
 	
 			}
 			//check if coin should be a dime
-			else if (Double.compare(value, 0.10) == 0){
+			else if (Double.compare(value, DIME_VALUE) == 0){
 				this.value = value;
 				this.commonName = "Dime";
 				this.frontImage = "F_Roosevelt";
@@ -149,7 +157,7 @@ public class Coin {
 				this.metallurgy = "Cupro-Nickel";
 			}
 			//check if coin should be a quarter
-			else if (Double.compare(value, 0.25) == 0){
+			else if (Double.compare(value, QUARTER_VALUE) == 0){
 				this.value = value;
 				this.commonName = "Quarter";
 				this.frontImage = "G_Washington";
@@ -160,7 +168,7 @@ public class Coin {
 	
 			}
 			//check if coin should be a half dollar
-			else if (Double.compare(value, 0.50) == 0){
+			else if (Double.compare(value, HALFDOLLAR_VALUE) == 0){
 				this.value = value;
 				this.commonName = "Half-dollar";
 				this.frontImage = "J_F_Kennedy";
@@ -171,7 +179,7 @@ public class Coin {
 	
 			}
 			//check if coin should be a dollar
-			else if (Double.compare(value, 1.0) == 0){
+			else if (Double.compare(value, DOLLAR_VALUE) == 0){
 				this.value = value;
 				this.commonName = "Dollar";
 				this.frontImage = "Sacagawea";
@@ -187,5 +195,53 @@ public class Coin {
 			this.backMotto = "E PLURIBUS UNUM";
 			this.frontLabel = "LIBERTY";
 			this.backLabel = "UNITED STATES OF AMERICA";
+	}
+
+	public double getValue() {
+		return value;
+	}
+
+	public String getFamiliarName() {
+		return commonName;
+	}
+
+	public String getFrontMotto() {
+		return frontMotto;
+	}
+
+	public int getYear() {
+		return manufactureYear;
+	}
+
+	public String getFrontImage() {
+		return frontImage;
+	}
+
+	public String getBackImage() {
+		return backImage;
+	}
+
+	public String getBackMotto() {
+		return backMotto;
+	}
+
+	public String getFrontLabel() {
+		return frontLabel;
+	}
+
+	public String getBackLabel() {
+		return backLabel;
+	}
+
+	public String getValueDescription() {
+		return valueDescription;
+	}
+
+	public boolean getRidgedEdge() {
+		return ridgedEdge;
+	}
+
+	public String getMetallurgy() {
+		return metallurgy;
 	}
 }
