@@ -7,7 +7,7 @@
 * @author  Josh Jones
 */
 
-public class Coin {
+abstract class Coin {
     public double value;
     public String commonName;
     public String frontMotto;
@@ -21,171 +21,114 @@ public class Coin {
     public boolean ridgedEdge;
     public String metallurgy;
 	
-	public Coin()
-	{
-		value = 0.0;
-		this.commonName = "";
-		this.frontMotto = "";
-		this.manufactureYear = 0;
-		this.frontImage = "";
-		this.backImage = "";
-		this.backMotto = "";
-		this.frontLabel = "";
-		this.backLabel = "";
-		this.valueDescription = "";
-		this.ridgedEdge = false;
-		this.metallurgy = "";
-	}
-		/**
+	//public Coin(){};
+
+	/**
 	 * Creates a coin object based on the value passed in
 	 * 
 	 * @param value	- numerical value that indicates what coin should be created
+	 * @param commonName - 
+	 * @param frontImage - 
+	 * @param backImage - 
+	 * @param valueDescription - 
+	 * @param ridgedEdge - 
+	 * @param metallurgy - 
+	 * @param year - 
 	 */
-	public Coin(double value)
+	public Coin(double value, String commonName, String frontImage, String backImage,
+							String valueDescription, boolean ridgedEdge, String metallurgy, int year)
 	{
-		//check if coin should be a penny
-		if(Double.compare(value, 0.01) == 0){
-			this.value = value;
-			this.commonName = "Penny";
-			this.frontImage = "Lincoln";
-			this.backImage = "Lincoln Memorial";
-			this.valueDescription = "ONE CENT";
-			this.ridgedEdge = false;
-			this.metallurgy = "Copper";
-		}
-		//check if coin should be a nickel
-		else if (Double.compare(value, 0.05) == 0){
-			this.value = value;
-			this.commonName = "Nickel";
-			this.frontImage = "Jefferson";
-			this.backImage = "Jefferson Memorial";
-			this.valueDescription = "FIVE CENTS";
-			this.ridgedEdge = false;
-			this.metallurgy = "Cupro-Nickel";
+		this.value = value;
+		this.commonName = commonName;
+		this.frontImage = frontImage;
+		this.backImage = backImage;
+		this.valueDescription = valueDescription;
+		this.ridgedEdge = ridgedEdge;
+		this.metallurgy = metallurgy;
 
-		}
-		//check if coin should be a dime
-		else if (Double.compare(value, 0.10) == 0){
-			this.value = value;
-			this.commonName = "Dime";
-			this.frontImage = "F_Roosevelt";
-			this.backImage = "Torch_branches";
-			this.valueDescription = "TEN CENTS";
-			this.ridgedEdge = false;
-			this.metallurgy = "Cupro-Nickel";
-		}
-		//check if coin should be a quarter
-		else if (Double.compare(value, 0.25) == 0){
-			this.value = value;
-			this.commonName = "Quarter";
-			this.frontImage = "G_Washington";
-			this.backImage = "Eagle";
-			this.valueDescription = "QUARTER DOLLAR";
-			this.ridgedEdge = false;
-			this.metallurgy = "Cupro-Nickel";
-
-		}
-		//check if coin should be a half dollar
-		else if (Double.compare(value, 0.50) == 0){
-			this.value = value;
-			this.commonName = "Half-dollar";
-			this.frontImage = "J_F_Kennedy";
-			this.backImage = "Presidential_Seal";
-			this.valueDescription = "HALF DOLLAR";
-			this.ridgedEdge = false;
-			this.metallurgy = "Cupro-Nickel";
-
-		}
-		//check if coin should be a dollar
-		else if (Double.compare(value, 1.0) == 0){
-			this.value = value;
-			this.commonName = "Dollar";
-			this.frontImage = "Sacagawea";
-			this.backImage = "Eagle_in_flight";
-			this.valueDescription = "ONE DOLLAR";
-			this.ridgedEdge = false;
-			this.metallurgy = "Manganese Brass";
-		}
-
-		this.manufactureYear = 2025;
+		this.manufactureYear = year;
 
 		this.frontMotto = "IN GOD WE TRUST";
 		this.backMotto = "E PLURIBUS UNUM";
 		this.frontLabel = "LIBERTY";
 		this.backLabel = "UNITED STATES OF AMERICA";
 	}
+}
 
-	public Coin(double value, int year)
+class Dollar extends Coin
+{
+	public Dollar()
 	{
-			//check if coin should be a penny
-			if(Double.compare(value, 0.01) == 0){
-				this.value = value;
-				this.commonName = "Penny";
-				this.frontImage = "Lincoln";
-				this.backImage = "Lincoln Memorial";
-				this.valueDescription = "ONE CENT";
-				this.ridgedEdge = false;
-				this.metallurgy = "Copper";
-			}
-			//check if coin should be a nickel
-			else if (Double.compare(value, 0.05) == 0){
-				this.value = value;
-				this.commonName = "Nickel";
-				this.frontImage = "Jefferson";
-				this.backImage = "Jefferson Memorial";
-				this.valueDescription = "FIVE CENTS";
-				this.ridgedEdge = false;
-				this.metallurgy = "Cupro-Nickel";
-	
-			}
-			//check if coin should be a dime
-			else if (Double.compare(value, 0.10) == 0){
-				this.value = value;
-				this.commonName = "Dime";
-				this.frontImage = "F_Roosevelt";
-				this.backImage = "Torch_branches";
-				this.valueDescription = "TEN CENTS";
-				this.ridgedEdge = false;
-				this.metallurgy = "Cupro-Nickel";
-			}
-			//check if coin should be a quarter
-			else if (Double.compare(value, 0.25) == 0){
-				this.value = value;
-				this.commonName = "Quarter";
-				this.frontImage = "G_Washington";
-				this.backImage = "Eagle";
-				this.valueDescription = "QUARTER DOLLAR";
-				this.ridgedEdge = false;
-				this.metallurgy = "Cupro-Nickel";
-	
-			}
-			//check if coin should be a half dollar
-			else if (Double.compare(value, 0.50) == 0){
-				this.value = value;
-				this.commonName = "Half-dollar";
-				this.frontImage = "J_F_Kennedy";
-				this.backImage = "Presidential_Seal";
-				this.valueDescription = "HALF DOLLAR";
-				this.ridgedEdge = false;
-				this.metallurgy = "Cupro-Nickel";
-	
-			}
-			//check if coin should be a dollar
-			else if (Double.compare(value, 1.0) == 0){
-				this.value = value;
-				this.commonName = "Dollar";
-				this.frontImage = "Sacagawea";
-				this.backImage = "Eagle_in_flight";
-				this.valueDescription = "ONE DOLLAR";
-				this.ridgedEdge = false;
-				this.metallurgy = "Manganese Brass";
-			}
-	
-			this.manufactureYear = year;
-	
-			this.frontMotto = "IN GOD WE TRUST";
-			this.backMotto = "E PLURIBUS UNUM";
-			this.frontLabel = "LIBERTY";
-			this.backLabel = "UNITED STATES OF AMERICA";
+		super(1.00, "Dollar","S_Anthony","Moon_Eagle","ONE DOLLAR",true,"Cupro-Nickel",2025);
+	}
+
+	public Dollar(int year)
+	{
+		super(1.00, "Dollar","S_Anthony","Moon_Eagle","ONE DOLLAR",true,"Cupro-Nickel",year);
+	}
+}
+
+class HalfDollar extends Coin
+{
+	public HalfDollar()
+	{
+		super(0.50,"HalfDollar","J_Kennedy","Presidential_Seal","HALF DOLLAR",true,"Cupro-Nickel",2025);
+	}
+
+	public HalfDollar(int year)
+	{
+		super(0.50,"HalfDollar","J_Kennedy","Presidential_Seal","HALF DOLLAR",true,"Cupro-Nickel",year);
+	}
+}
+
+class Quarter extends Coin
+{
+	public Quarter()
+	{
+		super(0.50,"Quarter","G_Washington","Eagle","QUARTER DOLLAR",true,"Cupro-Nickel",2025);
+	}
+
+	public Quarter(int year)
+	{
+		super(0.50,"Quarter","G_Washington","Eagle","QUARTER DOLLAR",true,"Cupro-Nickel",year);
+	}
+}
+
+class Dime extends Coin
+{
+	public Dime()
+	{
+		super(0.10,"Dime","F_Roosevelt","Torch_Branches","ONE DIME",true,"Cupro-Nickel",2025);
+	}
+
+	public Dime(int year)
+	{
+		super(0.10,"Dime","F_Roosevelt","Torch_Branches","ONE DIME",true,"Cupro-Nickel",year);
+	}
+}
+
+class Nickel extends Coin
+{
+	public Nickel()
+	{
+		super(0.05,"Nickel","T_Jefferson","Jefferson_Memorial","TEN CENTS",false,"Cupro-Nickel",2025);
+	}
+
+	public Nickel(int year)
+	{
+		super(0.05,"Nickel","T_Jefferson","Jefferson_Memorial","TEN CENTS",false,"Cupro-Nickel",year);
+	}
+}
+
+class Penny extends Coin
+{
+	public Penny()
+	{
+		super(0.01,"Penny","A_Lincoln","Lincoln_Memorial","ONE CENT",false,"Copper",2025);
+	}
+
+	public Penny(int year)
+	{
+		super(0.01,"Penny","A_Lincoln","Lincoln_Memorial","ONE CENT",false,"Copper",year);
 	}
 }
