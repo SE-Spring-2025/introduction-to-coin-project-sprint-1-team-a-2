@@ -37,6 +37,6 @@
 * getBackLabel(): returns a String containing the back label of the Coin object.
 * getValueDescription(): returns a String containing the value description of the Coin object.
 * getRidgedEdge(): returns a boolean that is true when there are ridged edges on the Coin object.
-* getMetallurgy: returns a String containing the metal composition of the Coin object.
+* getMetallurgy(): returns a String containing the metal composition of the Coin object.
 ### Other methods
 * toString(): returns a String listing all the attributes of the Coin object
