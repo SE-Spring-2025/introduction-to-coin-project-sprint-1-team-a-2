@@ -243,6 +243,15 @@ public class Coin {
 	}
 
 	public String toString(){
-		return String.format("%s,%f,%d,'%S','%S','%s','%s','%S','%S','%S'", null)
+		if(this.ridgedEdge == true) {
+			return String.format("[%s,%.2f,%d,'%S','%S','%s','%s','%S','%S','%S',ridges,'%s']", 
+			commonName, value, manufactureYear, frontMotto, backMotto, frontImage, backImage,
+			frontLabel, backLabel, valueDescription, metallurgy);
+		}
+		else {
+			return String.format("[%s,%f,%d,'%S','%S','%s','%s','%S','%S','%S',no ridges,'%s']", 
+			commonName, value, manufactureYear, frontMotto, backMotto, frontImage, backImage,
+			frontLabel, backLabel, valueDescription, metallurgy);
+		}
 	}
 }
