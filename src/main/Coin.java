@@ -9,7 +9,7 @@ package main;
 * @author  Josh Jones
 */
 
-abstract class Coin {
+public abstract class Coin {
     public double value;
     public String commonName;
     public String frontMotto;
