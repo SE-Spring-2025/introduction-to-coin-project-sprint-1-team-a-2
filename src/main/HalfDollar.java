@@ -1,3 +1,5 @@
+package main;
+
 public class HalfDollar extends Coin
 {
 	public HalfDollar()

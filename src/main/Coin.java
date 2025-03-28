@@ -1,3 +1,5 @@
+package main;
+
 /**
 * Class that creates coin objects based on what 
 * data (if any) is passed to methods

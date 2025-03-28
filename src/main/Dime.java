@@ -1,3 +1,5 @@
+package main;
+
 public class Dime extends Coin
 {
 	public Dime()

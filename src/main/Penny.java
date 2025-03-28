@@ -1,3 +1,5 @@
+package main;
+
 public class Penny extends Coin
 {
 	public Penny()

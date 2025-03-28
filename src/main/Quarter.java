@@ -1,3 +1,5 @@
+package main;
+
 public class Quarter extends Coin
 {
 	public Quarter()
