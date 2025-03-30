@@ -56,6 +56,54 @@ public abstract class Coin {
 		this.backLabel = "UNITED STATES OF AMERICA";
 	}
 
+	public double getValue() {
+		return value;
+	}
+
+	public String getFamiliarName() {
+		return commonName;
+	}
+
+	public String getFrontMotto() {
+		return frontMotto;
+	}
+
+	public int getYear() {
+		return manufactureYear;
+	}
+
+	public String getFrontImage() {
+		return frontImage;
+	}
+
+	public String getBackImage() {
+		return backImage;
+	}
+
+	public String getBackMotto() {
+		return backMotto;
+	}
+
+	public String getFrontLabel() {
+		return frontLabel;
+	}
+
+	public String getBackLabel() {
+		return backLabel;
+	}
+
+	public String getValueDescription() {
+		return valueDescription;
+	}
+
+	public boolean getRidgedEdge() {
+		return ridgedEdge;
+	}
+
+	public String getMetallurgy() {
+		return metallurgy;
+	}
+
 	public String toString(){
 		if(this.ridgedEdge == true) {
 			return String.format("[%s,%.2f,%d,'%S','%S','%s','%s','%S','%S','%S',ridges,'%s']", 
@@ -63,7 +111,7 @@ public abstract class Coin {
 			frontLabel, backLabel, valueDescription, metallurgy);
 		}
 		else {
-			return String.format("[%s,%f,%d,'%S','%S','%s','%s','%S','%S','%S',no ridges,'%s']", 
+			return String.format("[%s,%.2f,%d,'%S','%S','%s','%s','%S','%S','%S',no ridges,'%s']", 
 			commonName, value, manufactureYear, frontMotto, backMotto, frontImage, backImage,
 			frontLabel, backLabel, valueDescription, metallurgy);
 		}
