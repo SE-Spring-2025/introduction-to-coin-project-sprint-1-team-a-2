@@ -8,9 +8,9 @@
 * Added package declarations to each coin class so vscode can implement tests easier.
 * Created CoinTest file.
 * Made Coin abstract class public.
-# Version 0.4
+## Version 0.4
 * Added to CoinTest
 * Created test files for each concrete implementation of Coin abstract class.
 * Fixed errors found in concrete implementations using the tests.
-# Version 0.5
+## Version 0.5
 * removed some unused imports.
