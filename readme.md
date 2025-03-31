@@ -14,3 +14,15 @@
 * Fixed errors found in concrete implementations using the tests.
 ## Version 0.5
 * removed some unused imports.
+
+# Overview of Coins Project
+
+We are an independent contractor for the U.S. Treasury Department. We have been tasked with implementing a Coin class in order to "test drive" new aspects of their coinage process. Sprint 1 started with us laying the ground work by implementing a Coin class that can create each different coin itself. Now, in sprint 2, we are seperating each individual coin from the Coin class and making them concrete implementations of the abstract Coin class, with new test files to go with each new class.
+
+# Installation and Setup Guide
+
+# Usage Instructions
+In order to compile the .java files you must be have java installed on your computer. Once you have your temrminal's path inside of the repository you can run this command to compile everything: javac src/main/Coin.java src/main/Penny.java src/main/Nickel.java src/main/Dime.java src/main/Quarter.java src/main/HalfDollar.java src/main/Dollar.java src/client/Demo.java
+In order to run the Demo file uing the terminal, you must already have the terminal's path be the repository file. fter this you can run the command: java -cp src;src/client Demo
+
+# Contribution Guidelines 
