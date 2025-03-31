@@ -1,3 +1,5 @@
+package client;
+
 import main.*;
 
 public class Demo {
