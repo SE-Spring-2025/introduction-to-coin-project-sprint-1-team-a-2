@@ -26,3 +26,4 @@ In order to compile the .java files you must be have java installed on your comp
 In order to run the Demo file uing the terminal, you must already have the terminal's path be the repository file. fter this you can run the command: java -cp src;src/client Demo
 
 # Contribution Guidelines 
+Maxwell Brown - Started conversion of Coin class. Created Dime, Dollar, HalfDollar, Nickel, Penny, and Quarter classes.
