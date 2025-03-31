@@ -14,6 +14,11 @@
 * Fixed errors found in concrete implementations using the tests.
 ## Version 0.5
 * removed some unused imports.
+## Version 0.6
+* Added to Demo
+* Added package declaration to demo
+## Version 0.7
+* Added terminal commands to readme to compile and run the project demo.
 
 # Overview of Coins Project
 
@@ -30,4 +35,5 @@ We are an independent contractor for the U.S. Treasury Department. We have been 
 * In order to run the Demo file uing the terminal, you must already have the terminal's path be the repository file. fter this you can run the command: java -cp src client.Demo
 
 # Contribution Guidelines 
-Maxwell Brown - Started conversion of Coin class. Created Dime, Dollar, HalfDollar, Nickel, Penny, and Quarter classes.
+* Maxwell Brown - Started conversion of Coin class. Created Dime, Dollar, HalfDollar, Nickel, Penny, and Quarter classes.
+* Gabriel Basham - Created CoinTest, PennyTest, NickelTest, DimeTest, QuarterTest, HalfDollarTest, DollarTest. Wrote readme file.
