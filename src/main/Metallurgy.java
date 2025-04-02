@@ -1,5 +1,5 @@
 package main;
 
-interface Metallury{
+interface Metallurgy{
 public String smelt();
 }

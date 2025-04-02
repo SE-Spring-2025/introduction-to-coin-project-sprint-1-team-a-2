@@ -1,119 +1,94 @@
 package main;
 
-/**
-* Class that creates coin objects based on what 
-* data (if any) is passed to methods
-*
-* @author  Maxwell Brown
-* @author  Gabriel Basham
-* @author  Josh Jones
-*/
-
 public abstract class Coin {
-    public double value;
-    public String commonName;
-    public String frontMotto;
-    public int manufactureYear;
-    public String frontImage;
-    public String backImage;
-    public String backMotto;
-    public String frontLabel;
-    public String backLabel;
-    public String valueDescription;
-    public boolean ridgedEdge;
-    public String metallurgy;
-	
-	//public Coin(){};
+    protected double value;
+    protected String commonName;
+    protected String frontMotto;
+    protected int manufactureYear;
+    protected String frontImage;
+    protected String backImage;
+    protected String backMotto;
+    protected String frontLabel;
+    protected String backLabel;
+    protected String valueDescription;
+    protected boolean ridgedEdge;
+    protected String metallurgy;
+    protected Metallurgy smelter;
 
-	/**
-	 * Creates a coin object based on the value passed in
-	 * 
-	 * @param value	- numerical value that indicates what coin should be created
-	 * @param commonName - 
-	 * @param frontImage - 
-	 * @param backImage - 
-	 * @param valueDescription - 
-	 * @param ridgedEdge - 
-	 * @param metallurgy - 
-	 * @param year - 
-	 */
-	public Coin(double value, String commonName, String frontImage, String backImage,
-							String valueDescription, boolean ridgedEdge, String metallurgy, int year)
-	{
-		this.value = value;
-		this.commonName = commonName;
-		this.frontImage = frontImage;
-		this.backImage = backImage;
-		this.valueDescription = valueDescription;
-		this.ridgedEdge = ridgedEdge;
-		this.metallurgy = metallurgy;
+    public Coin(double value, String commonName, String frontImage, String backImage,
+                String valueDescription, boolean ridgedEdge, Metallurgy smelter, int year) {
+        this.value = value;
+        this.commonName = commonName;
+        this.frontImage = frontImage;
+        this.backImage = backImage;
+        this.valueDescription = valueDescription;
+        this.ridgedEdge = ridgedEdge;
+        this.smelter = smelter;
+        this.manufactureYear = year;
+        this.frontMotto = "IN GOD WE TRUST";
+        this.backMotto = "E PLURIBUS UNUM";
+        this.frontLabel = "LIBERTY";
+        this.backLabel = "UNITED STATES OF AMERICA";
+        this.metallurgy = smelt();
+    }
 
-		this.manufactureYear = year;
+    public double getValue() {
+        return value;
+    }
 
-		this.frontMotto = "IN GOD WE TRUST";
-		this.backMotto = "E PLURIBUS UNUM";
-		this.frontLabel = "LIBERTY";
-		this.backLabel = "UNITED STATES OF AMERICA";
-	}
+    public String getFamiliarName() {
+        return commonName;
+    }
 
-	public double getValue() {
-		return value;
-	}
+    public String getFrontMotto() {
+        return frontMotto;
+    }
 
-	public String getFamiliarName() {
-		return commonName;
-	}
+    public int getYear() {
+        return manufactureYear;
+    }
 
-	public String getFrontMotto() {
-		return frontMotto;
-	}
+    public String getFrontImage() {
+        return frontImage;
+    }
 
-	public int getYear() {
-		return manufactureYear;
-	}
+    public String getBackImage() {
+        return backImage;
+    }
 
-	public String getFrontImage() {
-		return frontImage;
-	}
+    public String getBackMotto() {
+        return backMotto;
+    }
 
-	public String getBackImage() {
-		return backImage;
-	}
+    public String getFrontLabel() {
+        return frontLabel;
+    }
 
-	public String getBackMotto() {
-		return backMotto;
-	}
+    public String getBackLabel() {
+        return backLabel;
+    }
 
-	public String getFrontLabel() {
-		return frontLabel;
-	}
+    public String getValueDescription() {
+        return valueDescription;
+    }
 
-	public String getBackLabel() {
-		return backLabel;
-	}
+    public boolean hasRidgedEdge() {
+        return ridgedEdge;
+    }
 
-	public String getValueDescription() {
-		return valueDescription;
-	}
+    public String getMetallurgy() {
+        return metallurgy;
+    }
 
-	public boolean getRidgedEdge() {
-		return ridgedEdge;
-	}
+    public String smelt() {
+        return smelter.smelt();
+    }
 
-	public String getMetallurgy() {
-		return metallurgy;
-	}
-
-	public String toString(){
-		if(this.ridgedEdge == true) {
-			return String.format("[%s,%.2f,%d,'%S','%S','%s','%s','%S','%S','%S',ridges,'%s']", 
-			commonName, value, manufactureYear, frontMotto, backMotto, frontImage, backImage,
-			frontLabel, backLabel, valueDescription, metallurgy);
-		}
-		else {
-			return String.format("[%s,%.2f,%d,'%S','%S','%s','%s','%S','%S','%S',no ridges,'%s']", 
-			commonName, value, manufactureYear, frontMotto, backMotto, frontImage, backImage,
-			frontLabel, backLabel, valueDescription, metallurgy);
-		}
-	}
+    @Override
+    public String toString() {
+        String edgeDescription = ridgedEdge ? "ridges" : "no ridges";
+        return String.format("[%s, %.2f, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', %s, '%s']",
+                commonName, value, manufactureYear, frontMotto, backMotto, frontImage, backImage,
+                frontLabel, backLabel, valueDescription, edgeDescription, metallurgy);
+    }
 }
