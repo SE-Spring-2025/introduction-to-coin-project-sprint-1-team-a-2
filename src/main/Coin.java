@@ -1,6 +1,6 @@
 package main;
 
-public abstract class Coin {
+public abstract class Coin implements Metallurgy{
     protected double value;
     protected String commonName;
     protected String frontMotto;
