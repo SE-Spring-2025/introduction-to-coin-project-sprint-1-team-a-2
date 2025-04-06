@@ -72,13 +72,14 @@ public abstract class Coin implements Metallurgy{
         return valueDescription;
     }
 
-    public boolean hasRidgedEdge() {
+    public boolean getRidgedEdge() {
         return ridgedEdge;
     }
 
     public String getMetallurgy() {
         return metallurgy;
     }
+
 
     public String smelt() {
         return smelter.smelt();
