@@ -62,5 +62,13 @@ public class CoinTest {
 	    + ",'Copper']";
 		assertEquals(expectedOutput, c.toString());
     }
+
+	@Test
+    public void testSmelt() {
+		//test smelt using Penny
+		Penny c = new Penny(2025);
+		String expectedOutput = (new Copper()).smelt();
+		assertEquals(expectedOutput, c.getMetallurgy());
+    }
 }
     

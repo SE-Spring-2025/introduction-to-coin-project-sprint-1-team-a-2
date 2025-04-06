@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
+import main.CuproNickel;
 import main.Dime;
 
 public class DimeTest {
@@ -61,5 +62,13 @@ public class DimeTest {
 	    + ",'UNITED STATES OF AMERICA','ONE DIME',ridges"
 	    + ",'Cupro-Nickel']";
 		assertEquals(expectedOutput, c.toString());
+    }
+
+	@Test
+    public void testSmelt() {
+		//test smelt using Dime
+		Dime c = new Dime(2025);
+		String expectedOutput = (new CuproNickel()).smelt();
+		assertEquals(expectedOutput, c.getMetallurgy());
     }
 }

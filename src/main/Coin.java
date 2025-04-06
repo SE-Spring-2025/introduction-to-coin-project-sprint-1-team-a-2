@@ -88,7 +88,7 @@ public abstract class Coin implements Metallurgy{
     @Override
     public String toString() {
         String edgeDescription = ridgedEdge ? "ridges" : "no ridges";
-        return String.format("[%s, %.2f, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', %s, '%s']",
+        return String.format("[%s,%.2f,%d,'%s','%s','%s','%s','%s','%s','%s',%s,'%s']",
                 commonName, value, manufactureYear, frontMotto, backMotto, frontImage, backImage,
                 frontLabel, backLabel, valueDescription, edgeDescription, metallurgy);
     }

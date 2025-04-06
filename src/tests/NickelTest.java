@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
+import main.CuproNickel;
 import main.Nickel;
 
 public class NickelTest {
@@ -61,5 +62,13 @@ public class NickelTest {
 	    + ",'UNITED STATES OF AMERICA','FIVE CENTS',no ridges"
 	    + ",'Cupro-Nickel']";
 		assertEquals(expectedOutput, c.toString());
+    }
+
+	@Test
+    public void testSmelt() {
+		//test smelt using Nickel
+		Nickel c = new Nickel(2025);
+		String expectedOutput = (new CuproNickel()).smelt();
+		assertEquals(expectedOutput, c.getMetallurgy());
     }
 }

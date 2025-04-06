@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
+import main.Copper;
 import main.Penny;
 
 public class PennyTest {
@@ -61,5 +62,13 @@ public class PennyTest {
 	    + ",'UNITED STATES OF AMERICA','ONE CENT',no ridges"
 	    + ",'Copper']";
 		assertEquals(expectedOutput, c.toString());
+    }
+
+	@Test
+    public void testSmelt() {
+		//test smelt using Penny
+		Penny c = new Penny(2025);
+		String expectedOutput = (new Copper()).smelt();
+		assertEquals(expectedOutput, c.getMetallurgy());
     }
 }
