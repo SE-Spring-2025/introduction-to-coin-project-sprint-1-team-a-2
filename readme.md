@@ -1,4 +1,4 @@
-# Coins Project Sprint 2 (Using Sprint 1 as a base)
+# Coins Project Sprint 3 (Using Sprint 1 as a base)
 ## Version 0.1
 * Created Classes for concrete implementations of abstract Coin class.
 ## Version 0.2
@@ -19,7 +19,18 @@
 * Added package declaration to demo
 ## Version 0.7
 * Added terminal commands to readme to compile and run the project demo.
-
+## Version 0.8
+* Implemented Metallurgy interface
+* Created Copper and CuproNickel Classes
+## Version 0.9
+* Updated individual coin classes to pass Metallurgy objects.
+* Changed ridged edge getter to fit tests, and hange CuproNickel smelt method return string.
+## Version 1.0
+* Added testSmelt to all tests, and edited concrete implementations based on test results.
+* Added constructors for each concrete coin class that take a metallurgy object as a parameter.
+## Version 1.1
+* Changed tests to include metallurgy constructoe in the smelt test.
+* Merged Sprint 3 branch with main.
 # Overview of Coins Project
 
 We are an independent contractor for the U.S. Treasury Department. We have been tasked with implementing a Coin class in order to "test drive" new aspects of their coinage process. Sprint 1 started with us laying the ground work by implementing a Coin class that can create each different coin itself. Now, in sprint 2, we are seperating each individual coin from the Coin class and making them concrete implementations of the abstract Coin class, with new test files to go with each new class.
