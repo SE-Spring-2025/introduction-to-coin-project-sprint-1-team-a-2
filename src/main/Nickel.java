@@ -11,4 +11,14 @@ public class Nickel extends Coin
 	{
 		super(0.05,"Nickel","T_Jefferson","Jefferson_Memorial","FIVE CENTS",false,new CuproNickel(),year);
 	}
+
+	public Nickel(Metallurgy metal)
+	{
+		super(0.05,"Nickel","T_Jefferson","Jefferson_Memorial","FIVE CENTS",false, metal,2025);
+	}
+
+	public Nickel(int year, Metallurgy metal)
+	{
+		super(0.05,"Nickel","T_Jefferson","Jefferson_Memorial","FIVE CENTS",false, metal,year);
+	}
 }
