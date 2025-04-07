@@ -1,29 +1,29 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+
 import org.junit.jupiter.api.Test;
 
 import main.*;
 
-public class CoinTest {
-    
+public class PennyTest {
 	@Test
     public void testConstructors() {
-	//testing Coin constructor using concrete class Penny
+	//testing Penny constructor
 	// parameterless constructor
 	try {
-	    Coin c = new Penny();
+	    Penny c = new Penny();
 	}
 	catch (Exception e) {
-	    fail("Coin() constructor caused exception: "+e.getMessage());
+	    fail("Penny() constructor caused exception: "+e.getMessage());
 	}
 
 	// year arg constructor
 	try {
-	    Coin c = new Penny(2025);
+	    Penny c = new Penny(2025);
 	}
 	catch (Exception e) {
-	    fail("Coin() constructor caused exception: "+e.getMessage());
+	    fail("Penny() constructor caused exception: "+e.getMessage());
 	}
 
 
@@ -34,7 +34,7 @@ public class CoinTest {
 	@Test
     public void testGetters() {
 		
-		Coin c = new Penny(2025);
+		Penny c = new Penny(2025);
 		if(c.getValue() != 0.01) fail("value getter failed");
 		if(!c.getFamiliarName().equals("Penny")) fail("xommon name getter failed");
 		if(!c.getFrontMotto().equals("IN GOD WE TRUST")) fail("front motto getter failed");
@@ -55,7 +55,7 @@ public class CoinTest {
 	@Test
     public void testToString() {
 		//test toString using penny
-		Coin c = new Penny(2025);
+		Penny c = new Penny(2025);
 		String expectedOutput = "[Penny,0.01,2025,'IN GOD WE TRUST','E PLURIBUS UNUM'"
 	    + ",'A_Lincoln','Lincoln_Memorial','LIBERTY'"
 	    + ",'UNITED STATES OF AMERICA','ONE CENT',no ridges"
@@ -73,8 +73,5 @@ public class CoinTest {
 		Penny c = new Penny(2025);
 		String expectedOutput = (new Copper()).smelt();
 		assertEquals(expectedOutput, c.getMetallurgy());
-
-		
     }
 }
-    
