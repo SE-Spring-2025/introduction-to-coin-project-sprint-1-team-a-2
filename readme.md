@@ -31,6 +31,7 @@
 ## Version 1.1
 * Changed tests to include metallurgy constructoe in the smelt test.
 * Merged Sprint 3 branch with main.
+* Added new coin object to demo to demonstrate new constructors.
 # Overview of Coins Project
 
 We are an independent contractor for the U.S. Treasury Department. We have been tasked with implementing a Coin class in order to "test drive" new aspects of their coinage process. Sprint 1 started with us laying the ground work by implementing a Coin class that can create each different coin itself. Now, in sprint 2, we are seperating each individual coin from the Coin class and making them concrete implementations of the abstract Coin class, with new test files to go with each new class.
