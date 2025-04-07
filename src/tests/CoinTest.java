@@ -66,9 +66,15 @@ public class CoinTest {
 	@Test
     public void testSmelt() {
 		//test smelt using Penny
+		Penny c1 = new Penny(2025, new CuproNickel());
+		String expectedOutput1 = (new CuproNickel()).smelt();
+		if(!c1.getMetallurgy().equals(expectedOutput1)) fail("Penny metallurgy constructer failed");
+
 		Penny c = new Penny(2025);
 		String expectedOutput = (new Copper()).smelt();
 		assertEquals(expectedOutput, c.getMetallurgy());
+
+		
     }
 }
     

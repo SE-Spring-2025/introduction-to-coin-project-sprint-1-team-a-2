@@ -4,8 +4,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
-import main.CuproNickel;
-import main.Dime;
+import main.*;
 
 public class DimeTest {
 	@Test
@@ -67,6 +66,11 @@ public class DimeTest {
 	@Test
     public void testSmelt() {
 		//test smelt using Dime
+
+		Dime c1 = new Dime(2025, new Copper());
+		String expectedOutput1 = (new Copper()).smelt();
+		if(!c1.getMetallurgy().equals(expectedOutput1)) fail("Dime metallurgy constructer failed");
+
 		Dime c = new Dime(2025);
 		String expectedOutput = (new CuproNickel()).smelt();
 		assertEquals(expectedOutput, c.getMetallurgy());

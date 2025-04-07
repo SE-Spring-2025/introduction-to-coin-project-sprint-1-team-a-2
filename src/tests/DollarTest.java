@@ -4,8 +4,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
-import main.CuproNickel;
-import main.Dollar;
+import main.*;
 
 public class DollarTest {
 	@Test
@@ -67,6 +66,10 @@ public class DollarTest {
 	@Test
     public void testSmelt() {
 		//test smelt using Dollar
+		Dollar c1 = new Dollar(2025, new Copper());
+		String expectedOutput1 = (new Copper()).smelt();
+		if(!c1.getMetallurgy().equals(expectedOutput1)) fail("Dollar metallurgy constructer failed");
+
 		Dollar c = new Dollar(2025);
 		String expectedOutput = (new CuproNickel()).smelt();
 		assertEquals(expectedOutput, c.getMetallurgy());
