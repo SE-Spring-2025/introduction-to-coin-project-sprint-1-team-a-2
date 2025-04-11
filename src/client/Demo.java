@@ -13,6 +13,7 @@ public class Demo {
         Coin q = new Quarter(2024);
         Coin h = new HalfDollar(2024);
         Coin d1 = new Dollar(2024);
+        Coin p1 = new Penny(2024, new CuproNickel());
 
         //Printing each Coin object will print out its toString, which contains 
         //all the information about the attributes of the coin.
@@ -22,5 +23,6 @@ public class Demo {
         System.out.println(q);
         System.out.println(h);
         System.out.println(d1);
+        System.out.println(p1);
     }
 }

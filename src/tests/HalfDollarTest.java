@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
-import main.HalfDollar;
+import main.*;
 
 public class HalfDollarTest {
 	@Test
@@ -35,7 +35,7 @@ public class HalfDollarTest {
     public void testGetters() {
 		
 		HalfDollar c = new HalfDollar(2025);
-		if(c.getValue() != 1) fail("value getter failed");
+		if(c.getValue() != 0.50) fail("value getter failed");
 		if(!c.getFamiliarName().equals("HalfDollar")) fail("xommon name getter failed");
 		if(!c.getFrontMotto().equals("IN GOD WE TRUST")) fail("front motto getter failed");
 		if(!c.getBackMotto().equals("E PLURIBUS UNUM")) fail("back motto getter failed");
@@ -61,5 +61,17 @@ public class HalfDollarTest {
 	    + ",'UNITED STATES OF AMERICA','HALF DOLLAR',ridges"
 	    + ",'Cupro-Nickel']";
 		assertEquals(expectedOutput, c.toString());
+    }
+
+	@Test
+    public void testSmelt() {
+		//test smelt using Dollar
+		HalfDollar c1 = new HalfDollar(2025, new Copper());
+		String expectedOutput1 = (new Copper()).smelt();
+		if(!c1.getMetallurgy().equals(expectedOutput1)) fail("HalfDollar metallurgy constructer failed");
+
+		HalfDollar c = new HalfDollar(2025);
+		String expectedOutput = (new CuproNickel()).smelt();
+		assertEquals(expectedOutput, c.getMetallurgy());
     }
 }

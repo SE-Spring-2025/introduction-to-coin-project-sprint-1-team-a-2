@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
-import main.Quarter;
+import main.*;
 
 public class QuarterTest {
 	@Test
@@ -61,5 +61,17 @@ public class QuarterTest {
 	    + ",'UNITED STATES OF AMERICA','QUARTER DOLLAR',ridges"
 	    + ",'Cupro-Nickel']";
 		assertEquals(expectedOutput, c.toString());
+    }
+
+	@Test
+    public void testSmelt() {
+		//test smelt using Quarter
+		Quarter c1 = new Quarter(2025, new Copper());
+		String expectedOutput1 = (new Copper()).smelt();
+		if(!c1.getMetallurgy().equals(expectedOutput1)) fail("Quarter metallurgy constructer failed");
+
+		Quarter c = new Quarter(2025);
+		String expectedOutput = (new CuproNickel()).smelt();
+		assertEquals(expectedOutput, c.getMetallurgy());
     }
 }
