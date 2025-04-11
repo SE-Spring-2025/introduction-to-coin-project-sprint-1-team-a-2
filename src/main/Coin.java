@@ -80,7 +80,6 @@ public abstract class Coin implements Metallurgy{
         return metallurgy;
     }
 
-
     public String smelt() {
         return smelter.smelt();
     }
@@ -91,5 +90,39 @@ public abstract class Coin implements Metallurgy{
         return String.format("[%s,%.2f,%d,'%s','%s','%s','%s','%s','%s','%s',%s,'%s']",
                 commonName, value, manufactureYear, frontMotto, backMotto, frontImage, backImage,
                 frontLabel, backLabel, valueDescription, edgeDescription, metallurgy);
+    }
+
+    public class CoinCounts
+    {
+        public int pennyCount;
+        public int nickelCount;
+        public int dimeCount;
+        public int quarterCount;
+        public int halfDollarCount;
+        public int dollarCount;
+        public int totalCoins;
+
+        public CoinCounts()
+        {
+            
+        }
+
+        public int incrementQuarter()
+        {
+            this.quarterCount += 1;
+            return this.quarterCount;
+        }
+
+        public int incrementHalfDollar()
+        {
+            this.halfDollarCount += 1;
+            return this.halfDollarCount;
+        }
+
+        public int incrementDollar()
+        {
+            this.dollarCount += 1;
+            return this.dollarCount;
+        }
     }
 }
