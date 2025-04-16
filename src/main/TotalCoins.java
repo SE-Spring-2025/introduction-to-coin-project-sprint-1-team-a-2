@@ -2,18 +2,13 @@ package main;
 
 import javax.swing.*;
 
-import net.sf.saxon.expr.sort.CodepointCollatingComparer;
-
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Observable;
-import java.util.Observer;
 
 
-public class TotalCoins extends JFrame implements Observer{
+public class TotalCoins extends JFrame{
 
     private JLabel totalCoinsLabel;
-    private JLabel quarterCountLabel;
     private JButton updateButton;
     private JButton pennyButton;
     private JButton nickelButton;
@@ -29,9 +24,6 @@ public class TotalCoins extends JFrame implements Observer{
 
             totalCoinsLabel = new JLabel("Total Coins: " + coinCounter.totalCoins);
             add(totalCoinsLabel);
-            
-            //quarterCountLabel = new JLabel("Total Quarters: " + coinCounter.quarterCount);
-            //add(quarterCountLabel);
 
             pennyButton = new JButton("Penny");
             add(pennyButton);
@@ -45,6 +37,16 @@ public class TotalCoins extends JFrame implements Observer{
             add(hdButton);
             dollarButton = new JButton("Dollar");
             add(dollarButton);
+
+            updateButton = new JButton("Update");
+        
+            updateButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    totalCoinsLabel.setText("Total Quarters: " + coinCounter.totalCoins);
+                }
+            });
+            add(updateButton);
 
             pack();
             setVisible(true);
@@ -73,15 +75,5 @@ public class TotalCoins extends JFrame implements Observer{
         public void addDollar(ActionListener al)
         {
             dollarButton.addActionListener(al);
-        }
-
-        @Override
-        public void update(Observable o, Object arg) {
-            if (o instanceof Coin.CoinCounts)
-            {
-                Coin.CoinCounts coinct = (Coin.CoinCounts) o;
-                totalCoinsLabel.setText("Total Coins: " + coinct.totalCoins);
-                //quarterCountLabel.setText("Total Quarters: " + coinct.quarterCount);
-            }
         }
 }

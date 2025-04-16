@@ -76,5 +76,13 @@ public class CoinTest {
 
 		
     }
+
+	@Test
+	public void testCoinCounts() {
+		if(Coin.getCoinCounter().totalCoins != 0) fail("totalCoins counter should be 0.");
+		new Penny();
+		if(Coin.getCoinCounter().totalCoins != 1) fail("totalCoins counter should be 1.");
+		assertTrue(true);
+	}
 }
     

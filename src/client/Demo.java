@@ -11,8 +11,6 @@ public class Demo{
         Coin.CoinCounts coinct = Coin.getCoinCounter();
         TotalCoins totalCoins = new TotalCoins(coinct);
         TotalQuarters totalQuarters = new TotalQuarters(coinct);
-        coinct.addObserver(totalCoins);
-        coinct.addObserver(totalQuarters);
 
         totalCoins.addPenny(new ActionListener() {
             @Override
