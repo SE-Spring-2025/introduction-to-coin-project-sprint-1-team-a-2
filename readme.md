@@ -1,5 +1,4 @@
-# Coins Project Sprint 2 (Using Sprint 1 as a base)
-# Coins Project Sprint 3 (Using Sprint 1 as a base)
+# Coins Project Sprint 4 (Using Sprint 1 as a base)
 ## Version 0.1
 * Created Classes for concrete implementations of abstract Coin class.
 ## Version 0.2
