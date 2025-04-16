@@ -1,24 +1,14 @@
-# Coins Project Sprint 4 (Using Sprint 1 as a base)
+# Coins Project Sprint 4 (Using Sprint 3 as a base)
 ## Version 0.1
-* Created Classes for concrete implementations of abstract Coin class.
+* Set up new CelciusConverter files.
+* Started to implement CoinCounts.
 ## Version 0.2
-* Added package declaration to demo
-## Version 0.7
-* Added terminal commands to readme to compile and run the project demo. 
-## Version 0.8
-* Implemented Metallurgy interface
-* Created Copper and CuproNickel Classes
-## Version 0.9
-* Updated individual coin classes to pass Metallurgy objects.
-* Changed ridged edge getter to fit tests, and hange CuproNickel smelt method return string.
-## Version 1.0
-* Added testSmelt to all tests, and edited concrete implementations based on test results.
-* Added constructors for each concrete coin class that take a metallurgy object as a parameter.
-## Version 1.1
-* Changed tests to include metallurgy constructor in the smelt test.
-* Merged Sprint 3 branch with main.
-## Version 1.2
-* Added observers.
+* Added incrementers to each concrete Coin constructor.
+* Made observer classes for the total number of coins and the total number of quarters.
+* Created main class for coin constructor.
+## Version 0.3
+* Finished Demo
+* Merged Sprint 4 onto main.
 
 # Overview of Coins Project
  
