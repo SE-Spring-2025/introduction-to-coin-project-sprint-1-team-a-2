@@ -24,8 +24,10 @@ We are an independent contractor for the U.S. Treasury Department. We have been 
 # Installation and Setup Guide
  
 * First download the repository and if it is compressed extract the files into a folder.
-* Make sure your terminal is within the repository but outside of the client, src, and tests folders. 
-* Now we need to compile. In order to compile the .java files you must be have java installed on your computer. You can run this command to compile everything: javac src/main/Coin.java src/main/Penny.java src/main/Nickel.java src/main/Dime.java src/main/Quarter.java src/main/HalfDollar.java src/main/Dollar.java src/client/Demo.java
+* Open VSCode
+* Open the folder in the window
+* Open the Demo.java file
+* Hit "run without debugging"
  
 # Usage Instructions
  
