@@ -14,7 +14,8 @@ public class Demo{
         coinct.addObserver(totalCoins);
         coinct.addObserver(totalQuarters);
 
-        totalCoins.addPenny(new ActionListener() {
+        totalCoins.addPenny(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e)
             {

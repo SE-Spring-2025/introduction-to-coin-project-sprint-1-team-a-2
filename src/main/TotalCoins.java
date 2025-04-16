@@ -33,10 +33,11 @@ public class TotalCoins extends JFrame implements Observer{
             //quarterCountLabel = new JLabel("Total Quarters: " + coinCounter.quarterCount);
             //add(quarterCountLabel);
 
-            pennyButton = new JButton("Penny");
-            add(pennyButton);
+            
             nickelButton = new JButton("Nickel");
             add(nickelButton);
+            pennyButton = new JButton("Penny");
+            add(pennyButton);
             dimeButton = new JButton("Dime");
             add(dimeButton);
             quarterButton = new JButton("Quarter");
