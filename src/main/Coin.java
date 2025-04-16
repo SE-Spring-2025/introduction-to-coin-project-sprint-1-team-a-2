@@ -14,6 +14,7 @@ public abstract class Coin implements Metallurgy{
     protected boolean ridgedEdge;
     protected String metallurgy;
     protected Metallurgy smelter;
+    protected static CoinCounts coinCounter;
 
     public Coin(double value, String commonName, String frontImage, String backImage,
                 String valueDescription, boolean ridgedEdge, Metallurgy smelter, int year) {
@@ -30,6 +31,10 @@ public abstract class Coin implements Metallurgy{
         this.frontLabel = "LIBERTY";
         this.backLabel = "UNITED STATES OF AMERICA";
         this.metallurgy = smelt();
+    }
+
+    static {
+        Coin.coinCounter = new CoinCounts();
     }
 
     public double getValue() {
@@ -92,7 +97,9 @@ public abstract class Coin implements Metallurgy{
                 frontLabel, backLabel, valueDescription, edgeDescription, metallurgy);
     }
 
-    public class CoinCounts
+}
+
+class CoinCounts
     {
         public int pennyCount;
         public int nickelCount;
@@ -104,25 +111,47 @@ public abstract class Coin implements Metallurgy{
 
         public CoinCounts()
         {
-            
+        }
+
+        public int incrementPenny()
+        {
+            this.pennyCount += 1;
+            this.totalCoins += 1;
+            return this.pennyCount;
+        }
+
+        public int incrementNickel()
+        {
+            this.nickelCount += 1;
+            this.totalCoins += 1;
+            return this.nickelCount;
+        }
+
+        public int incrementDime()
+        {
+            this.dimeCount += 1;
+            this.totalCoins += 1;
+            return this.dimeCount;
         }
 
         public int incrementQuarter()
         {
             this.quarterCount += 1;
+            this.totalCoins += 1;
             return this.quarterCount;
         }
 
         public int incrementHalfDollar()
         {
             this.halfDollarCount += 1;
+            this.totalCoins += 1;
             return this.halfDollarCount;
         }
 
         public int incrementDollar()
         {
             this.dollarCount += 1;
+            this.totalCoins += 1;
             return this.dollarCount;
         }
-    }
 }

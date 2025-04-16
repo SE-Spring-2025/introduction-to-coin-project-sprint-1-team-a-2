@@ -1,4 +1,7 @@
+package main;
+
 import java.util.Scanner;
+import main.NewCelsiusConverter;
 
 public class NewMain {
         public static void main(String[] args) throws InterruptedException {

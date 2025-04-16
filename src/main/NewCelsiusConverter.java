@@ -1,6 +1,9 @@
+package main;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
 
 public class NewCelsiusConverter extends JFrame implements Runnable {
 
