@@ -15,7 +15,7 @@
 * Added testSmelt to all tests, and edited concrete implementations based on test results.
 * Added constructors for each concrete coin class that take a metallurgy object as a parameter.
 ## Version 1.1
-* Changed tests to include metallurgy constructoe in the smelt test.
+* Changed tests to include metallurgy constructor in the smelt test.
 * Merged Sprint 3 branch with main.
 # Overview of Coins Project
  
