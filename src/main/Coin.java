@@ -40,10 +40,6 @@ public abstract class Coin implements Metallurgy{
     {
         return Coin.coinCounter;
     }
-/*
-    static {
-        Coin.coinCounter = new CoinCounts();
-    }*/
 
     public double getValue() {
         return value;
@@ -95,10 +91,6 @@ public abstract class Coin implements Metallurgy{
 
     public String smelt() {
         return smelter.smelt();
-    }
-
-    public static CoinCounts getCounter(){
-        return coinCounter;
     }
 
     @Override
