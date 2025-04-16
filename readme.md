@@ -9,6 +9,7 @@
 ## Version 0.3
 * Finished Demo
 * Merged Sprint 4 onto main.
+* Updated readme.md
 
 # Overview of Coins Project
  
