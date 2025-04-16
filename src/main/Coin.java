@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Observable;
+
 public abstract class Coin implements Metallurgy{
     protected double value;
     protected String commonName;
@@ -14,7 +16,7 @@ public abstract class Coin implements Metallurgy{
     protected boolean ridgedEdge;
     protected String metallurgy;
     protected Metallurgy smelter;
-    protected static CoinCounts coinCounter;
+    //protected static CoinCounts coinCounter;
 
     public Coin(double value, String commonName, String frontImage, String backImage,
                 String valueDescription, boolean ridgedEdge, Metallurgy smelter, int year) {
@@ -33,9 +35,16 @@ public abstract class Coin implements Metallurgy{
         this.metallurgy = smelt();
     }
 
+    protected static CoinCounts coinCounter = new CoinCounts();
+
+    public static CoinCounts getCoinCounter()
+    {
+        return Coin.coinCounter;
+    }
+/*
     static {
         Coin.coinCounter = new CoinCounts();
-    }
+    }*/
 
     public double getValue() {
         return value;
@@ -96,10 +105,7 @@ public abstract class Coin implements Metallurgy{
                 commonName, value, manufactureYear, frontMotto, backMotto, frontImage, backImage,
                 frontLabel, backLabel, valueDescription, edgeDescription, metallurgy);
     }
-
-}
-
-class CoinCounts
+    public static class CoinCounts extends Observable
     {
         public int pennyCount;
         public int nickelCount;
@@ -111,12 +117,21 @@ class CoinCounts
 
         public CoinCounts()
         {
+            this.pennyCount = 0;
+            this.nickelCount = 0;
+            this.dimeCount = 0;
+            this.quarterCount = 0;
+            this.halfDollarCount = 0;
+            this.dollarCount = 0;
+            this.totalCoins = 0;
         }
 
         public int incrementPenny()
         {
             this.pennyCount += 1;
             this.totalCoins += 1;
+            setChanged();
+            notifyObservers();
             return this.pennyCount;
         }
 
@@ -124,6 +139,8 @@ class CoinCounts
         {
             this.nickelCount += 1;
             this.totalCoins += 1;
+            setChanged();
+            notifyObservers();
             return this.nickelCount;
         }
 
@@ -131,6 +148,8 @@ class CoinCounts
         {
             this.dimeCount += 1;
             this.totalCoins += 1;
+            setChanged();
+            notifyObservers();
             return this.dimeCount;
         }
 
@@ -138,6 +157,8 @@ class CoinCounts
         {
             this.quarterCount += 1;
             this.totalCoins += 1;
+            setChanged();
+            notifyObservers();
             return this.quarterCount;
         }
 
@@ -145,6 +166,8 @@ class CoinCounts
         {
             this.halfDollarCount += 1;
             this.totalCoins += 1;
+            setChanged();
+            notifyObservers();
             return this.halfDollarCount;
         }
 
@@ -152,6 +175,10 @@ class CoinCounts
         {
             this.dollarCount += 1;
             this.totalCoins += 1;
+            setChanged();
+            notifyObservers();
             return this.dollarCount;
         }
 }
+}
+
