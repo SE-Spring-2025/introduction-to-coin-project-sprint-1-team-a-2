@@ -89,6 +89,10 @@ public abstract class Coin implements Metallurgy{
         return smelter.smelt();
     }
 
+    public static CoinCounts getCounter(){
+        return coinCounter;
+    }
+
     @Override
     public String toString() {
         String edgeDescription = ridgedEdge ? "ridges" : "no ridges";

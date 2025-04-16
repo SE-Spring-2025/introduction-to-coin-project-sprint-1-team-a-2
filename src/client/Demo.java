@@ -24,5 +24,15 @@ public class Demo {
         System.out.println(h);
         System.out.println(d1);
         System.out.println(p1);
+
+        System.gc();
+
+        new Penny();
+        new Penny();
+        TotalCoins totalCoins = new TotalCoins(Coin.getCounter());
+        new Penny();
+        new Quarter();
+        TotalQuarters totalQuarters = new TotalQuarters(Coin.getCounter());
+        new Quarter();
     }
 }
