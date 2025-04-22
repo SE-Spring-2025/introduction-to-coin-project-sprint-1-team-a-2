@@ -18,22 +18,42 @@ public abstract class Coin implements Metallurgy{
     protected Metallurgy smelter;
     //protected static CoinCounts coinCounter;
 
-    public Coin(double value, String commonName, String frontImage, String backImage,
-                String valueDescription, boolean ridgedEdge, Metallurgy smelter, int year) {
+    public Coin(double value, String commonName, Metallurgy smelter) {
         this.value = value;
         this.commonName = commonName;
-        this.frontImage = frontImage;
-        this.backImage = backImage;
-        this.valueDescription = valueDescription;
-        this.ridgedEdge = ridgedEdge;
         this.smelter = smelter;
-        this.manufactureYear = year;
-        this.frontMotto = "IN GOD WE TRUST";
-        this.backMotto = "E PLURIBUS UNUM";
-        this.frontLabel = "LIBERTY";
-        this.backLabel = "UNITED STATES OF AMERICA";
-        this.metallurgy = smelt();
     }
+
+    public Coin manufacture(Coin c0){
+        Coin c1 = c0.smelt(c0);
+        c1 = c1.ridging(c1);
+        c1 = c1.imprintFront(c1);
+        c1.flip(c1);
+        c1 = c1.imprintBack(c1);
+        c1.buff(c1);
+        return c1;
+    }
+
+    public Coin smelt(Coin c){
+        System.out.println("Smelting " + c.smelter.smelt() + "...");
+        c.metallurgy = c.smelter.smelt();
+        return c;
+    }
+
+    public void flip(Coin c){
+        System.out.println("Flipping " + c.commonName + " over...");
+    }
+
+    public void buff(Coin c){
+        System.out.println("Buffing " + c.commonName + "...");
+    }
+
+    public Coin imprintFront(Coin c){return c;};
+    public Coin imprintFront(Coin c, int year){return c;};
+    public Coin imprintBack(Coin c){return c;};
+    public Coin ridging(Coin c){return c;};
+
+
 
     protected static CoinCounts coinCounter = new CoinCounts();
 

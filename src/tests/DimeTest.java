@@ -17,16 +17,6 @@ public class DimeTest {
 	catch (Exception e) {
 	    fail("Dime() constructor caused exception: "+e.getMessage());
 	}
-
-	// year arg constructor
-	try {
-	    Dime c = new Dime(2025);
-	}
-	catch (Exception e) {
-	    fail("Dime() constructor caused exception: "+e.getMessage());
-	}
-
-
 	// make it here then didn't fail!
 	assertTrue(true);
     }
@@ -34,7 +24,8 @@ public class DimeTest {
 	@Test
     public void testGetters() {
 		
-		Dime c = new Dime(2025);
+		Dime c1 = new Dime();
+		Dime c = c1.manufacture(c1);
 		if(c.getValue() != 0.1) fail("value getter failed");
 		if(!c.getFamiliarName().equals("Dime")) fail("xommon name getter failed");
 		if(!c.getFrontMotto().equals("IN GOD WE TRUST")) fail("front motto getter failed");
@@ -55,7 +46,8 @@ public class DimeTest {
 	@Test
     public void testToString() {
 		//test toString using Dime
-		Dime c = new Dime(2025);
+		Dime c1 = new Dime();
+		Dime c = c1.manufacture(c1);
 		String expectedOutput = "[Dime,0.10,2025,'IN GOD WE TRUST','E PLURIBUS UNUM'"
 	    + ",'F_Roosevelt','Torch_Branches','LIBERTY'"
 	    + ",'UNITED STATES OF AMERICA','ONE DIME',ridges"
@@ -67,12 +59,14 @@ public class DimeTest {
     public void testSmelt() {
 		//test smelt using Dime
 
-		Dime c1 = new Dime(2025, new Copper());
+		Dime c = new Dime(new Copper());
+		Dime c1 = c.manufacture(c);
 		String expectedOutput1 = (new Copper()).smelt();
 		if(!c1.getMetallurgy().equals(expectedOutput1)) fail("Dime metallurgy constructer failed");
 
-		Dime c = new Dime(2025);
+		Dime c2 = new Dime();
+		Dime c3 = c2.manufacture(c2);
 		String expectedOutput = (new CuproNickel()).smelt();
-		assertEquals(expectedOutput, c.getMetallurgy());
+		assertEquals(expectedOutput, c3.getMetallurgy());
     }
 }

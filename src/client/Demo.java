@@ -19,47 +19,46 @@ public class Demo{
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                new Penny(2024);
+                new Penny();
             }
         });
         totalCoins.addNickel(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                new Nickel(2024);
+                new Nickel();
             }
         });
         totalCoins.addDime(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                new Dime(2024);
+                new Dime();
             }
         });
         totalCoins.addQuarter(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                new Quarter(2024);
+                new Quarter();
             }
         });
         totalCoins.addHD(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                new HalfDollar(2024);
+                new HalfDollar();
             }
         });
         totalCoins.addDollar(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                new Dollar(2024);
+                new Dollar();
             }
         });
 
-        new Penny(2024);
-        new Nickel(2024);
-        new Dime(2024);
+        Penny c1 = new Penny();
+        Penny c2 = c1.manufacture(c1);
     }
 }
