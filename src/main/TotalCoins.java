@@ -2,11 +2,17 @@ package main;
 
 import javax.swing.*;
 
+import java.util.Observable;
+
+import net.sf.saxon.expr.sort.CodepointCollatingComparer;
+
+
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Observer;
 
 
-public class TotalCoins extends JFrame{
+public class TotalCoins extends JFrame implements Observer{
 
     private JLabel totalCoinsLabel;
     private JButton updateButton;
@@ -76,5 +82,15 @@ public class TotalCoins extends JFrame{
         public void addDollar(ActionListener al)
         {
             dollarButton.addActionListener(al);
+        }
+
+        @Override
+        public void update(Observable o, Object arg) {
+            if (o instanceof Coin.CoinCounts)
+            {
+                Coin.CoinCounts coinct = (Coin.CoinCounts) o;
+                totalCoinsLabel.setText("Total Coins: " + coinct.totalCoins);
+                //quarterCountLabel.setText("Total Quarters: " + coinct.quarterCount);
+            }
         }
 }
