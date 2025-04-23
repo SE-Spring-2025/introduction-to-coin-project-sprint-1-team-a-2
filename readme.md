@@ -12,6 +12,9 @@
 * Updated Observer class to manufacture coins instead of just constructing them.
 * Added an ArrayList to make sure each coin is added to it and tracked instead of just created without any variable.
 * Updated readme.md
+## Version 0.5
+* Refactored to remove manufacture method from concrete implementations and edited demo to include changes.
+* updated readme.md
 
 # Overview of Coins Project
  
@@ -28,3 +31,4 @@ We are an independent contractor for the U.S. Treasury Department. We have been 
 # Contribution Guidelines 
 * Maxwell Brown - Added manufacture method to Coin class, helped edit constructors, edited tests and updated demo and observer class.
 * Gabriel Basham - Added manufacture to concrete implementations of the Coin class, helped edit constructors and updated readme.
+* Josh Jones - Refactored to remove template method from subclasses and make it so it works with it only being in Coin class
