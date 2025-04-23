@@ -16,7 +16,6 @@ public abstract class Coin implements Metallurgy{
     protected boolean ridgedEdge;
     protected String metallurgy;
     protected Metallurgy smelter;
-    //protected static CoinCounts coinCounter;
 
     public Coin(double value, String commonName, Metallurgy smelter) {
         this.value = value;
@@ -24,7 +23,8 @@ public abstract class Coin implements Metallurgy{
         this.smelter = smelter;
     }
 
-    public Coin manufacture(Coin c0){
+    // Template Method - final so it cannot be overridden
+    public final Coin manufacture(Coin c0){
         Coin c1 = c0.smelt(c0);
         c1 = c1.ridging(c1);
         c1 = c1.imprintFront(c1);
@@ -34,38 +34,49 @@ public abstract class Coin implements Metallurgy{
         return c1;
     }
 
+    // Template Method with year parameter
+    public final Coin manufacture(Coin c0, int year){
+        Coin c1 = c0.smelt(c0);
+        c1 = c1.ridging(c1);
+        c1 = c1.imprintFront(c1, year);
+        c1.flip(c1);
+        c1 = c1.imprintBack(c1);
+        c1.buff(c1);
+        return c1;
+    }
+
+    // Common method implemented in base class
     public Coin smelt(Coin c){
         System.out.println("Smelting " + c.smelter.smelt() + "...");
         c.metallurgy = c.smelter.smelt();
         return c;
     }
 
+    // Common method implemented in base class
     public void flip(Coin c){
         System.out.println("Flipping " + c.commonName + " over...");
     }
 
+    // Common method implemented in base class
     public void buff(Coin c){
         System.out.println("Buffing " + c.commonName + "...");
     }
 
-    public Coin imprintFront(Coin c){return c;};
-    public Coin imprintFront(Coin c, int year){return c;};
-    public Coin imprintBack(Coin c){return c;};
-    public Coin ridging(Coin c){return c;};
+    // Abstract methods to be implemented by subclasses
+    public abstract Coin imprintFront(Coin c);
+    public abstract Coin imprintFront(Coin c, int year);
+    public abstract Coin imprintBack(Coin c);
+    public abstract Coin ridging(Coin c);
 
-
-
+    // Static counter to keep track of coins
     protected static CoinCounts coinCounter = new CoinCounts();
 
     public static CoinCounts getCoinCounter()
     {
         return Coin.coinCounter;
     }
-/*
-    static {
-        Coin.coinCounter = new CoinCounts();
-    }*/
 
+    // Getters
     public double getValue() {
         return value;
     }
@@ -125,6 +136,7 @@ public abstract class Coin implements Metallurgy{
                 commonName, value, manufactureYear, frontMotto, backMotto, frontImage, backImage,
                 frontLabel, backLabel, valueDescription, edgeDescription, metallurgy);
     }
+    
     public static class CoinCounts extends Observable
     {
         public int pennyCount;
@@ -199,6 +211,5 @@ public abstract class Coin implements Metallurgy{
             notifyObservers();
             return this.dollarCount;
         }
+    }
 }
-}
-
