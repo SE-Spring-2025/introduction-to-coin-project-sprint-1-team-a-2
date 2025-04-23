@@ -1,5 +1,6 @@
 package main;
 
+import java.util.Observable;
 
 public abstract class Coin implements Metallurgy{
     protected double value;
@@ -128,7 +129,7 @@ public abstract class Coin implements Metallurgy{
                 commonName, value, manufactureYear, frontMotto, backMotto, frontImage, backImage,
                 frontLabel, backLabel, valueDescription, edgeDescription, metallurgy);
     }
-    public static class CoinCounts
+    public static class CoinCounts extends Observable
     {
         public int pennyCount;
         public int nickelCount;
@@ -153,6 +154,8 @@ public abstract class Coin implements Metallurgy{
         {
             this.pennyCount += 1;
             this.totalCoins += 1;
+            setChanged();
+            notifyObservers();
             return this.pennyCount;
         }
 
@@ -160,6 +163,8 @@ public abstract class Coin implements Metallurgy{
         {
             this.nickelCount += 1;
             this.totalCoins += 1;
+            setChanged();
+            notifyObservers();
             return this.nickelCount;
         }
 
@@ -167,6 +172,8 @@ public abstract class Coin implements Metallurgy{
         {
             this.dimeCount += 1;
             this.totalCoins += 1;
+            setChanged();
+            notifyObservers();
             return this.dimeCount;
         }
 
@@ -174,6 +181,8 @@ public abstract class Coin implements Metallurgy{
         {
             this.quarterCount += 1;
             this.totalCoins += 1;
+            setChanged();
+            notifyObservers();
             return this.quarterCount;
         }
 
@@ -181,6 +190,8 @@ public abstract class Coin implements Metallurgy{
         {
             this.halfDollarCount += 1;
             this.totalCoins += 1;
+            setChanged();
+            notifyObservers();
             return this.halfDollarCount;
         }
 
