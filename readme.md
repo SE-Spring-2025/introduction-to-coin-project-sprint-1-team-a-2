@@ -26,5 +26,5 @@ We are an independent contractor for the U.S. Treasury Department. We have been 
 * Hit "run without debugging"
  
 # Contribution Guidelines 
-* Maxwell Brown - Added manufacture method to Coin class, helped edit constructors, edited tests and updated readme file.
-* Gabriel Basham - Added manufacture to concrete implementations of the Coin class, helped edit constructors.
+* Maxwell Brown - Added manufacture method to Coin class, helped edit constructors, edited tests and updated demo and observer class.
+* Gabriel Basham - Added manufacture to concrete implementations of the Coin class, helped edit constructors and updated readme.
