@@ -10,6 +10,7 @@
 * The tests have not be changed much, because the object should still contain the same data in the end.
 ## Version 0.4
 * Updated Observer class to manufacture coins instead of just constructing them.
+* Added an ArrayList to make sure each coin is added to it and tracked instead of just created without any variable.
 
 # Overview of Coins Project
  
