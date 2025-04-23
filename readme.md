@@ -11,6 +11,7 @@
 ## Version 0.4
 * Updated Observer class to manufacture coins instead of just constructing them.
 * Added an ArrayList to make sure each coin is added to it and tracked instead of just created without any variable.
+* Updated readme.md
 
 # Overview of Coins Project
  
