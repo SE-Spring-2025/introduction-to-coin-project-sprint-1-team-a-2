@@ -22,8 +22,9 @@ public class Demo{
             public void actionPerformed(ActionEvent e)
             {
                 Penny p = new Penny();
-                p = p.manufacture(p);
+                p = (Penny) p.manufacture(p);
                 coinList.add(p);
+                System.out.println("Manufactured a new " + p.getFamiliarName() + ": " + p);
             }
         });
         totalCoins.addNickel(new ActionListener() {
@@ -31,8 +32,9 @@ public class Demo{
             public void actionPerformed(ActionEvent e)
             {
                 Nickel n = new Nickel();
-                n = n.manufacture(n);
+                n = (Nickel) n.manufacture(n);
                 coinList.add(n);
+                System.out.println("Manufactured a new " + n.getFamiliarName() + ": " + n);
             }
         });
         totalCoins.addDime(new ActionListener() {
@@ -40,8 +42,9 @@ public class Demo{
             public void actionPerformed(ActionEvent e)
             {
                 Dime d = new Dime();
-                d = d.manufacture(d);
+                d = (Dime) d.manufacture(d);
                 coinList.add(d);
+                System.out.println("Manufactured a new " + d.getFamiliarName() + ": " + d);
             }
         });
         totalCoins.addQuarter(new ActionListener() {
@@ -49,8 +52,9 @@ public class Demo{
             public void actionPerformed(ActionEvent e)
             {
                 Quarter q = new Quarter();
-                q = q.manufacture(q);
+                q = (Quarter) q.manufacture(q);
                 coinList.add(q);
+                System.out.println("Manufactured a new " + q.getFamiliarName() + ": " + q);
             }
         });
         totalCoins.addHD(new ActionListener() {
@@ -58,8 +62,9 @@ public class Demo{
             public void actionPerformed(ActionEvent e)
             {
                 HalfDollar h = new HalfDollar();
-                h = h.manufacture(h);
+                h = (HalfDollar) h.manufacture(h);
                 coinList.add(h);
+                System.out.println("Manufactured a new " + h.getFamiliarName() + ": " + h);
             }
         });
         totalCoins.addDollar(new ActionListener() {
@@ -67,12 +72,30 @@ public class Demo{
             public void actionPerformed(ActionEvent e)
             {
                 Dollar d = new Dollar();
-                d = d.manufacture(d);
+                d = (Dollar) d.manufacture(d);
                 coinList.add(d);
+                System.out.println("Manufactured a new " + d.getFamiliarName() + ": " + d);
             }
         });
 
-        Penny c1 = new Penny();
-        Penny c2 = c1.manufacture(c1);
+        // Example of manufacturing with different years
+        System.out.println("\nDemonstrating coin manufacture with specific years:");
+        Penny p2020 = new Penny();
+        p2020 = (Penny) p2020.manufacture(p2020, 2020);
+        System.out.println("Manufactured a 2020 " + p2020.getFamiliarName() + ": " + p2020);
+        
+        Nickel n1999 = new Nickel();
+        n1999 = (Nickel) n1999.manufacture(n1999, 1999);
+        System.out.println("Manufactured a 1999 " + n1999.getFamiliarName() + ": " + n1999);
+        
+        // Print summary of coins manufactured
+        System.out.println("\nCoin Counter Summary:");
+        System.out.println("Pennies: " + coinct.pennyCount);
+        System.out.println("Nickels: " + coinct.nickelCount);
+        System.out.println("Dimes: " + coinct.dimeCount);
+        System.out.println("Quarters: " + coinct.quarterCount);
+        System.out.println("Half Dollars: " + coinct.halfDollarCount);
+        System.out.println("Dollars: " + coinct.dollarCount);
+        System.out.println("Total Coins: " + coinct.totalCoins);
     }
 }
