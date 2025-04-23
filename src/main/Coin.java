@@ -166,8 +166,10 @@ public abstract class Coin implements Metallurgy{
 
         public int incrementDollar()
         {
-            this.dollarCount += 1;
             this.totalCoins += 1;
+            this.dollarCount += 1;
+            setChanged();
+            notifyObservers();
             return this.dollarCount;
         }
 }

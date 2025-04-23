@@ -12,7 +12,8 @@ public class Demo{
         TotalCoins totalCoins = new TotalCoins(coinct);
         TotalQuarters totalQuarters = new TotalQuarters(coinct);
 
-        totalCoins.addPenny(new ActionListener() {
+        totalCoins.addPenny(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e)
             {
