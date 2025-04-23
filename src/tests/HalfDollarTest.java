@@ -18,15 +18,6 @@ public class HalfDollarTest {
 	    fail("HalfDollar() constructor caused exception: "+e.getMessage());
 	}
 
-	// year arg constructor
-	try {
-	    HalfDollar c = new HalfDollar(2025);
-	}
-	catch (Exception e) {
-	    fail("HalfDollar() constructor caused exception: "+e.getMessage());
-	}
-
-
 	// make it here then didn't fail!
 	assertTrue(true);
     }
@@ -34,7 +25,8 @@ public class HalfDollarTest {
 	@Test
     public void testGetters() {
 		
-		HalfDollar c = new HalfDollar(2025);
+		HalfDollar c1 = new HalfDollar();
+		HalfDollar c = c1.manufacture(c1);
 		if(c.getValue() != 0.50) fail("value getter failed");
 		if(!c.getFamiliarName().equals("HalfDollar")) fail("xommon name getter failed");
 		if(!c.getFrontMotto().equals("IN GOD WE TRUST")) fail("front motto getter failed");
@@ -55,7 +47,8 @@ public class HalfDollarTest {
 	@Test
     public void testToString() {
 		//test toString using HalfDollar
-		HalfDollar c = new HalfDollar(2025);
+		HalfDollar c1 = new HalfDollar();
+		HalfDollar c = c1.manufacture(c1);
 		String expectedOutput = "[HalfDollar,0.50,2025,'IN GOD WE TRUST','E PLURIBUS UNUM'"
 	    + ",'J_Kennedy','Presidential_Seal','LIBERTY'"
 	    + ",'UNITED STATES OF AMERICA','HALF DOLLAR',ridges"
@@ -66,12 +59,14 @@ public class HalfDollarTest {
 	@Test
     public void testSmelt() {
 		//test smelt using Dollar
-		HalfDollar c1 = new HalfDollar(2025, new Copper());
+		HalfDollar c1 = new HalfDollar(new Copper());
+		HalfDollar c = c1.manufacture(c1);
 		String expectedOutput1 = (new Copper()).smelt();
 		if(!c1.getMetallurgy().equals(expectedOutput1)) fail("HalfDollar metallurgy constructer failed");
 
-		HalfDollar c = new HalfDollar(2025);
+		HalfDollar c2 = new HalfDollar();
+		HalfDollar c3 = c2.manufacture(c2);
 		String expectedOutput = (new CuproNickel()).smelt();
-		assertEquals(expectedOutput, c.getMetallurgy());
+		assertEquals(expectedOutput, c3.getMetallurgy());
     }
 }

@@ -25,10 +25,11 @@ public class TotalCoins extends JFrame{
             totalCoinsLabel = new JLabel("Total Coins: " + coinCounter.totalCoins);
             add(totalCoinsLabel);
 
-            pennyButton = new JButton("Penny");
-            add(pennyButton);
+            
             nickelButton = new JButton("Nickel");
             add(nickelButton);
+            pennyButton = new JButton("Penny");
+            add(pennyButton);
             dimeButton = new JButton("Dime");
             add(dimeButton);
             quarterButton = new JButton("Quarter");

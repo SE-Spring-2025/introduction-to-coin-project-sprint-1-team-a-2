@@ -18,15 +18,6 @@ public class DollarTest {
 	    fail("Dollar() constructor caused exception: "+e.getMessage());
 	}
 
-	// year arg constructor
-	try {
-	    Dollar c = new Dollar(2025);
-	}
-	catch (Exception e) {
-	    fail("Dollar() constructor caused exception: "+e.getMessage());
-	}
-
-
 	// make it here then didn't fail!
 	assertTrue(true);
     }
@@ -34,7 +25,8 @@ public class DollarTest {
 	@Test
     public void testGetters() {
 		
-		Dollar c = new Dollar(2025);
+		Dollar c1 = new Dollar();
+		Dollar c = c1.manufacture(c1);
 		if(c.getValue() != 1.00) fail("value getter failed");
 		if(!c.getFamiliarName().equals("Dollar")) fail("xommon name getter failed");
 		if(!c.getFrontMotto().equals("IN GOD WE TRUST")) fail("front motto getter failed");
@@ -55,7 +47,8 @@ public class DollarTest {
 	@Test
     public void testToString() {
 		//test toString using Dollar
-		Dollar c = new Dollar(2025);
+		Dollar c1 = new Dollar();
+		Dollar c = c1.manufacture(c1);
 		String expectedOutput = "[Dollar,1.00,2025,'IN GOD WE TRUST','E PLURIBUS UNUM'"
 	    + ",'S_Anthony','Moon_Eagle','LIBERTY'"
 	    + ",'UNITED STATES OF AMERICA','ONE DOLLAR',ridges"
@@ -66,12 +59,14 @@ public class DollarTest {
 	@Test
     public void testSmelt() {
 		//test smelt using Dollar
-		Dollar c1 = new Dollar(2025, new Copper());
+		Dollar c = new Dollar(new Copper());
+		Dollar c1 = c.manufacture(c);
 		String expectedOutput1 = (new Copper()).smelt();
 		if(!c1.getMetallurgy().equals(expectedOutput1)) fail("Dollar metallurgy constructer failed");
 
-		Dollar c = new Dollar(2025);
+		Dollar c2 = new Dollar();
+		Dollar c3 = c2.manufacture(c2);
 		String expectedOutput = (new CuproNickel()).smelt();
-		assertEquals(expectedOutput, c.getMetallurgy());
+		assertEquals(expectedOutput, c3.getMetallurgy());
     }
 }

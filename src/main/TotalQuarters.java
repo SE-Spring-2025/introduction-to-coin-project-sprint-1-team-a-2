@@ -17,17 +17,7 @@ public class TotalQuarters extends JFrame{
 
             quarterLabel = new JLabel("Total Quarters: " + coinCounter.quarterCount);
             add(quarterLabel);
-
-            JButton updateButton = new JButton("Update");
-        
-            updateButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    quarterLabel.setText("Total Quarters: " + coinCounter.quarterCount);
-                }
-            });
-            add(updateButton);
-
+            
             pack();
             setVisible(true);
         }

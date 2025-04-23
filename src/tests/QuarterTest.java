@@ -18,15 +18,6 @@ public class QuarterTest {
 	    fail("Quarter() constructor caused exception: "+e.getMessage());
 	}
 
-	// year arg constructor
-	try {
-	    Quarter c = new Quarter(2025);
-	}
-	catch (Exception e) {
-	    fail("Quarter() constructor caused exception: "+e.getMessage());
-	}
-
-
 	// make it here then didn't fail!
 	assertTrue(true);
     }
@@ -34,7 +25,8 @@ public class QuarterTest {
 	@Test
     public void testGetters() {
 		
-		Quarter c = new Quarter(2025);
+		Quarter c1 = new Quarter();
+		Quarter c = c1.manufacture(c1);
 		if(c.getValue() != 0.25) fail("value getter failed");
 		if(!c.getFamiliarName().equals("Quarter")) fail("xommon name getter failed");
 		if(!c.getFrontMotto().equals("IN GOD WE TRUST")) fail("front motto getter failed");
@@ -55,7 +47,8 @@ public class QuarterTest {
 	@Test
     public void testToString() {
 		//test toString using Quarter
-		Quarter c = new Quarter(2025);
+		Quarter c1 = new Quarter();
+		Quarter c = c1.manufacture(c1);
 		String expectedOutput = "[Quarter,0.25,2025,'IN GOD WE TRUST','E PLURIBUS UNUM'"
 	    + ",'G_Washington','Eagle','LIBERTY'"
 	    + ",'UNITED STATES OF AMERICA','QUARTER DOLLAR',ridges"
@@ -66,12 +59,14 @@ public class QuarterTest {
 	@Test
     public void testSmelt() {
 		//test smelt using Quarter
-		Quarter c1 = new Quarter(2025, new Copper());
+		Quarter c = new Quarter(new Copper());
+		Quarter c1 = c.manufacture(c);
 		String expectedOutput1 = (new Copper()).smelt();
 		if(!c1.getMetallurgy().equals(expectedOutput1)) fail("Quarter metallurgy constructer failed");
 
-		Quarter c = new Quarter(2025);
+		Quarter c2 = new Quarter();
+		Quarter c3 = c2.manufacture(c2);
 		String expectedOutput = (new CuproNickel()).smelt();
-		assertEquals(expectedOutput, c.getMetallurgy());
+		assertEquals(expectedOutput, c3.getMetallurgy());
     }
 }

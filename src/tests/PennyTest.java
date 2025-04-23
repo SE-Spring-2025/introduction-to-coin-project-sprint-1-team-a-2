@@ -18,15 +18,6 @@ public class PennyTest {
 	    fail("Penny() constructor caused exception: "+e.getMessage());
 	}
 
-	// year arg constructor
-	try {
-	    Penny c = new Penny(2025);
-	}
-	catch (Exception e) {
-	    fail("Penny() constructor caused exception: "+e.getMessage());
-	}
-
-
 	// make it here then didn't fail!
 	assertTrue(true);
     }
@@ -34,7 +25,8 @@ public class PennyTest {
 	@Test
     public void testGetters() {
 		
-		Penny c = new Penny(2025);
+		Penny c1 = new Penny();
+		Penny c = c1.manufacture(c1);
 		if(c.getValue() != 0.01) fail("value getter failed");
 		if(!c.getFamiliarName().equals("Penny")) fail("xommon name getter failed");
 		if(!c.getFrontMotto().equals("IN GOD WE TRUST")) fail("front motto getter failed");
@@ -55,7 +47,8 @@ public class PennyTest {
 	@Test
     public void testToString() {
 		//test toString using penny
-		Penny c = new Penny(2025);
+		Penny c1 = new Penny();
+		Penny c = c1.manufacture(c1);
 		String expectedOutput = "[Penny,0.01,2025,'IN GOD WE TRUST','E PLURIBUS UNUM'"
 	    + ",'A_Lincoln','Lincoln_Memorial','LIBERTY'"
 	    + ",'UNITED STATES OF AMERICA','ONE CENT',no ridges"
@@ -66,12 +59,14 @@ public class PennyTest {
 	@Test
     public void testSmelt() {
 		//test smelt using Penny
-		Penny c1 = new Penny(2025, new CuproNickel());
+		Penny c1 = new Penny(new CuproNickel());
+		Penny c = c1.manufacture(c1);
 		String expectedOutput1 = (new CuproNickel()).smelt();
 		if(!c1.getMetallurgy().equals(expectedOutput1)) fail("Penny metallurgy constructer failed");
 
-		Penny c = new Penny(2025);
+		Penny c2 = new Penny();
+		Penny c3 = c2.manufacture(c2);
 		String expectedOutput = (new Copper()).smelt();
-		assertEquals(expectedOutput, c.getMetallurgy());
+		assertEquals(expectedOutput, c3.getMetallurgy());
     }
 }

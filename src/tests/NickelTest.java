@@ -18,15 +18,6 @@ public class NickelTest {
 	    fail("Nickel() constructor caused exception: "+e.getMessage());
 	}
 
-	// year arg constructor
-	try {
-	    Nickel c = new Nickel(2025);
-	}
-	catch (Exception e) {
-	    fail("Nickel() constructor caused exception: "+e.getMessage());
-	}
-
-
 	// make it here then didn't fail!
 	assertTrue(true);
     }
@@ -34,7 +25,8 @@ public class NickelTest {
 	@Test
     public void testGetters() {
 		
-		Nickel c = new Nickel(2025);
+		Nickel c1 = new Nickel();
+		Nickel c = c1.manufacture(c1);
 		if(c.getValue() != 0.05) fail("value getter failed");
 		if(!c.getFamiliarName().equals("Nickel")) fail("xommon name getter failed");
 		if(!c.getFrontMotto().equals("IN GOD WE TRUST")) fail("front motto getter failed");
@@ -55,7 +47,8 @@ public class NickelTest {
 	@Test
     public void testToString() {
 		//test toString using Nickel
-		Nickel c = new Nickel(2025);
+		Nickel c1 = new Nickel();
+		Nickel c = c1.manufacture(c1);
 		String expectedOutput = "[Nickel,0.05,2025,'IN GOD WE TRUST','E PLURIBUS UNUM'"
 	    + ",'T_Jefferson','Jefferson_Memorial','LIBERTY'"
 	    + ",'UNITED STATES OF AMERICA','FIVE CENTS',no ridges"
@@ -66,12 +59,14 @@ public class NickelTest {
 	@Test
     public void testSmelt() {
 		//test smelt using Nickel
-		Nickel c1 = new Nickel(2025, new Copper());
+		Nickel c = new Nickel(new Copper());
+		Nickel c1 = c.manufacture(c);
 		String expectedOutput1 = (new Copper()).smelt();
 		if(!c1.getMetallurgy().equals(expectedOutput1)) fail("Nickel metallurgy constructer failed");
 
-		Nickel c = new Nickel(2025);
+		Nickel c2 = new Nickel();
+		Nickel c3 = c2.manufacture(c2);
 		String expectedOutput = (new CuproNickel()).smelt();
-		assertEquals(expectedOutput, c.getMetallurgy());
+		assertEquals(expectedOutput, c3.getMetallurgy());
     }
 }
